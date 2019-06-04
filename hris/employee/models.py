@@ -4,7 +4,7 @@ from datetime import datetime
 # Create your models here.
 class Employee(models.Model):
 
-
+    username = models.CharField(max_length=100, blank=True)
     image = models.ImageField(blank=True, upload_to="employee_images")
     first_name = models.CharField(max_length=100)
     middle_name = models.CharField(max_length=100)
