@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
         <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-        <title>Floating labels example · Bootstrap</title>
+        <title>HRIS Login</title>
 
         <!-- Bootstrap core CSS -->
         <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
@@ -31,20 +31,22 @@
     </head>
     <body>
       
-     <form class="form-signin">
+     <form class="form-signin" action="{% url 'main:index' %}" method="POST">
+        {% csrf_token %}
         <div class="text-center mb-4">
-            <img class="mb-4" src="/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-            <h1 class="h3 mb-3 font-weight-normal">Floating labels</h1>
-            <p>Build form controls with floating labels via the <code>:placeholder-shown</code> pseudo-element. <a href="https://caniuse.com/#feat=css-placeholder-shown">Works in latest Chrome, Safari, and Firefox.</a></p>
+            <img class="mb-4" src="{% static 'main/human-resources.png' %}" alt="" width="72" height="72">
+            <h1 class="h3 mb-3 font-weight-normal">HRIS</h1>
+            <p>Your human resources partner </p>
+            <h2>Login</h2>
+        </div>
+        
+        <div class="form-label-group">
+            <input type="text" id="inputUsername" class="form-control" name="username" placeholder="Username" required autofocus>
+            <label for="inputUsername">Username</label>
         </div>
 
         <div class="form-label-group">
-            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-            <label for="inputEmail">Email address</label>
-        </div>
-
-        <div class="form-label-group">
-            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+            <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required>
             <label for="inputPassword">Password</label>
         </div>
 
@@ -53,13 +55,14 @@
             <input type="checkbox" value="remember-me"> Remember me
             </label>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <input type="submit" class="btn btn-lg btn-primary btn-block" value="Sign in"/>
+        <p class="mt-5 mb-3 text-muted">Don't have an account? <a href="{% url 'main:signup' %}">Sign Up</a></p>
         <p class="mt-5 mb-3 text-muted text-center">&copy; 2017-2019</p>
     </form>
 
     <script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/popper.js' %}"></script>
-    <script type="text/javascript" src="{% static 'tooltip.js' %}"></script>    
+    <script type="text/javascript" src="{% static 'js/tooltip.js' %}"></script>    
     </body>
 </html>
