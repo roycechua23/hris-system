@@ -13,7 +13,7 @@ class Index(View):
 
     def get(self, request, *args, **kwargs):
         if "user_info" in request.session:
-            return redirect("employee/")
+            return redirect("/employee/")
         else:
             return render(request,template_name="main/login.html",context={})
 
@@ -27,7 +27,7 @@ class Index(View):
                 print("password is correct")
                 HR.objects.filter(username=username).update(date_lastlogin=datetime.now(),is_loggedin=True)
                 request.session["user_info"]={"username":username}
-                return redirect('employee/')
+                return redirect('/employee/')
             # If existing user's input password was wrong
             else:
                 print("wrong password")
@@ -40,8 +40,11 @@ class Index(View):
 class SignUp(View):
 
     def get(self, request, *args, **kwargs):
-        return render(request,template_name="main/registration.html",context={})
-
+        if "user_info" in request.session:
+            return redirect("/employee/")
+        else:
+            return render(request,template_name="main/registration.html",context={})
+        
     def post(self, request, *args, **kwargs):
         username = request.POST.get("username")
         password = request.POST.get("password")
