@@ -4,7 +4,7 @@ from django.views import View
 from .models import HR
 from employee.models import Employee
 
-from datetime import datetime 
+from datetime import datetime
 from django.contrib.auth.hashers import make_password, check_password
 
 
@@ -44,12 +44,12 @@ class SignUp(View):
             return redirect("/employee/")
         else:
             return render(request,template_name="main/registration.html",context={})
-        
+
     def post(self, request, *args, **kwargs):
         username = request.POST.get("username")
         password = request.POST.get("password")
 
-        if username == HR.objects.filter(username=username)[0].username:
+        if len(HR.objects.filter(username=username))>0:
             print("Account already exists")
             return redirect('/')
         else:
