@@ -43,14 +43,39 @@ class CreateEmployee(View):
         department = request.POST.get("department")
         date_hired = request.POST.get("date_hired")
         pag_ibig = request.POST.get("pag_ibig")
+        philhealth = request.POST.get("philhealth")
         last_name = request.POST.get("last_name")
         city = request.POST.get("city")
         supervisor = request.POST.get("supervisor")
         tin = request.POST.get("tin")
         status = request.POST.get("status")
-        age = datetime.now().year - datetime.strptime(f'{date_of_birth}', '%m/%d/%Y').year
-        # temp lambda: True if request.POST.get("salary")=="Active" else (False if request.POST.get("salary")=="Reserved")  
+        age = datetime.now().year - datetime.strptime(date_of_birth, '%Y-%m-%d').year
+        status = True if request.POST.get("salary") =="Active" else False
 
+        record, created = Employee.objects.get_or_create(
+            first_name = first_name,
+            middle_name = middle_name,
+            last_name = last_name,
+            date_of_birth = date_of_birth,
+            age = age,
+            address = address,
+            city = city,
+            position = position,
+            department = department,
+            supervisor =  supervisor,
+            salary = salary,
+            date_hired = date_hired,
+            tin = tin,
+            philhealth = philhealth,
+            sss = sss,
+            pag_ibig = pag_ibig,
+            status = status
+        )
+        if created == False:
+            # Display message to indicate existing account
+            return redirect("/")
+        return redirect("/")
+        
 # class CreateEmployee(View):
 
 #     def get(self, request, *args, **kwargs):
