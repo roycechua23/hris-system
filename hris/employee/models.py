@@ -22,8 +22,8 @@ class Employee(models.Model):
     philhealth = models.CharField(max_length=30, blank=True)
     sss = models.CharField(max_length=30, blank=True)
     pag_ibig = models.CharField(max_length=30, blank=True)
-    date_updated = models.DateTimeField()
+    date_updated = models.DateTimeField(auto_now=True)
     status = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.name
+        return f"{self.id} - {self.first_name} {self.middle_name} {self.last_name}"
