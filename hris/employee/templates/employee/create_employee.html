@@ -5,78 +5,110 @@
     <form action="" method="POST">
         {% csrf_token %}
         <div class="row">
-            <div class="col-sm">
-                <h2>Create Employee Profile</h2>
+            <h2>Create Employee Profile</h2>
+        </div>
+        <div class="row">
+            <div class="col">
                 <div class="form-group">
                     <label for="first_name">First Name</label>
                     <input required name="first_name" type="text" class="form-control" id="first_name" placeholder="First Name">
                 </div>
-                <div class="form-group">
-                    <label for="date_of_birth">Date of Birth</label>
-                    <input required name="date_of_birth" type="date" class="form-control" id="date_of_birth" placeholder="Date of Birth">
-                </div>
-                <div class="form-group">
-                    <label for="position">Position</label>
-                    <input required name="position" type="text" class="form-control" id="position" placeholder="Position">
-                </div>
-                <div class="form-group">
-                    <label for="salary">Salary</label>
-                    <input name="salary" type="number" class="form-control" id="salary" placeholder="Salary">
-                </div>
-                <div class="form-group">
-                    <label for="sss">Social Security Number (SSS)</label>
-                    <input name="sss" type="text" class="form-control" id="sss" placeholder="Social Security Number (SSS)">
-                </div>
             </div>
-            <div class="col-sm">
-                <br><br>
+            <div class="col">
                 <div class="form-group">
                     <label for="middle_name">Middle Name</label>
                     <input required name="middle_name" type="text" class="form-control" id="middle_name" placeholder="Middle Name">
                 </div>
-                <div class="form-group">
-                    <label for="address">Address</label>
-                    <input required name="address" type="text" class="form-control" id="address" placeholder="Address">
-                </div>
-                <div class="form-group">
-                    <label for="department">Department</label>
-                    <input name="department" type="text" class="form-control" id="department" placeholder="Department">
-                </div>
-                <div class="form-group">
-                    <label for="date_hired">Date Hired</label>
-                    <input name="date_hired" type="date" class="form-control" id="date_hired" placeholder="Date Hired">
-                </div>
-                <div class="form-group">
-                    <label for="pag_ibig">PAG-IBIG</label>
-                    <input name="pag_ibig" type="text" class="form-control" id="pag_ibig" placeholder="PAG-IBIG">
-                </div>
             </div>
-            <div class="col-sm">
-                <br><br>
+            <div class="col">
                 <div class="form-group">
                     <label for="last_name">Last Name</label>
                     <input required name="last_name" type="text" class="form-control" id="last_name" placeholder="Last Name">
                 </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="date_of_birth">Date of Birth</label>
+                    <input required name="date_of_birth" type="date" class="form-control" id="date_of_birth" placeholder="Date of Birth">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <input required name="address" type="text" class="form-control" id="address" placeholder="Address">
+                </div>
+            </div>
+            <div class="col">
                 <div class="form-group">
                     <label for="city">City</label>
                     <input required name="city" type="text" class="form-control" id="city" placeholder="City">
                 </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="position">Position</label>
+                    <input required name="position" type="text" class="form-control" id="position" placeholder="Position">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="department">Department</label>
+                    <input name="department" type="text" class="form-control" id="department" placeholder="Department">
+                </div>
+            </div>
+            <div class="col">
                 <div class="form-group">
                     <label for="supervisor">Supervisor</label>
                     <input name="supervisor" type="text" class="form-control" id="supervisor" placeholder="Supervisor">
                 </div>
-                <div class="form-group">
-                    <label for="tin">Tax Identification Number (TIN)</label>
-                    <input name="tin" type="text" class="form-control" id="tin" placeholder="Tax Identification Number (TIN)">
-                </div>
-                <div class="form-group">
-                    <label for="status">Status (Active/Reserved)</label>
-                    <select name="status" class="form-control" id="status">
-                    <option>Active</option>
-                    <option>Reserved</option>
-                    </select>
-                </div>
             </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+                <label for="salary">Salary</label>
+                <input name="salary" type="number" class="form-control" id="salary" placeholder="Salary">
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+                <label for="date_hired">Date Hired</label>
+                <input name="date_hired" type="date" class="form-control" id="date_hired" placeholder="Date Hired">
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+                <label for="tin">Tax Identification Number (TIN)</label>
+                <input name="tin" type="text" class="form-control" id="tin" placeholder="Tax Identification Number (TIN)">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+                <label for="sss">Social Security Number (SSS)</label>
+                <input name="sss" type="text" class="form-control" id="sss" placeholder="Social Security Number (SSS)">
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+                <label for="pag_ibig">PAG-IBIG</label>
+                <input name="pag_ibig" type="text" class="form-control" id="pag_ibig" placeholder="PAG-IBIG">
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+                <label for="status">Status (Active/Reserved)</label>
+                <select name="status" class="form-control" id="status">
+                <option>Active</option>
+                <option>Reserved</option>
+                </select>
+            </div>
+          </div>
         </div>
         <br><br>
         <input type="submit" class="btn btn-primary btn-block" value="Create Employee" />
