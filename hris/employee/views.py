@@ -12,9 +12,9 @@ class Dashboard(View):
             username = request.session["user_info"]["username"]
             request.session["user_info"]["current_page"] = "home"
             try:
-                if username == Employee.objects.filter(username=username)[0].username:
-                    profile = Employee.objects.filter(username=username)[0]
-                    return render(request,template_name="employee/employee.html",context={"profile":profile})
+                if len(Employee.objects.all()) > 0:
+                    employees = Employee.objects.all()
+                    return render(request,template_name="employee/employee.html",context={"employees":employees})
                 else:
                     return render(request,template_name="employee/employee.html",context={})
             except IndexError:

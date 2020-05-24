@@ -1,19 +1,40 @@
 {% extends "employee/dashboard.html" %}
 
 {% block inner_content %}
-{% if profile %}
+{% if employees %}
 <div class="container">
-  <div class="row">
-    <div class="col-sm">
-      One of three columns
-    </div>
-    <div class="col-sm">
-      One of three columns
-    </div>
-    <div class="col-sm">
-      One of three columns
-    </div>
-  </div>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Middle Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Status (Active/Not)</th>
+        <th scope="col">Options</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for employee in employees %}
+      <tr>
+        <th scope="row">{{ employee.id }}</th>
+        <td>{{ employee.first_name }}</td>
+        <td>{{ employee.middle_name }}</td>
+        <td>{{ employee.last_name }}</td>
+        {% if employee.status %}
+          <td>Active</td>
+        {% else %}
+          <td>Inactive</td>
+        {% endif %}
+        <td>
+          <button type="button" class="btn btn-primary">View Details</button>
+          <button type="button" class="btn btn-warning">Update</button>
+          <button type="button" class="btn btn-danger">Delete Record</button>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 </div>
 {% else %}
 <div class="container">
@@ -22,8 +43,8 @@
       
     </div>
     <div class="col-sm">
-      <h2>You have no profile yet!</h2>
-      <a href="{% url 'employee:create_employee' %}" class="btn btn-primary btn-lg btn-block">Create a profile!</a>
+      <h2>You have no record of your employees yet</h2>
+      <a href="{% url 'employee:create_employee' %}" class="btn btn-primary btn-lg btn-block">Add an employee</a>
     </div>
     <div class="col-sm">
       
